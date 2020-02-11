@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testclasses><giftwrappingfacades><testclass>org.giftwrapping.facades.suggestion.impl.DefaultSimpleSuggestionFacadeTest</testclass><testclass>org.giftwrapping.facades.suggestion.DefaultSimpleSuggestionFacadeIntegrationTest</testclass></giftwrappingfacades></testclasses>

@@ -1,0 +1,4 @@
+INSERT_UPDATE GiftWrapOption;code[unique=true];cost;type(code)
+;A7;15;STANDARD
+;A8;16;PREMIUM
+;A9;17;STANDARD
