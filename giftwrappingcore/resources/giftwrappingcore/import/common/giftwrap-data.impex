@@ -1,4 +1,12 @@
-INSERT_UPDATE GiftWrapOption;code[unique=true];cost;type(code)
-;A7;15;STANDARD
-;A8;16;PREMIUM
-;A9;17;STANDARD
+$contentCatalog=apparel-ukContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+
+$siteResource=jar:de.hybris.platform.apparelstore.constants.ApparelstoreConstants&/apparelstore/import/sampledata/contentCatalogs/$contentCatalog
+
+INSERT_UPDATE Media ; $contentCV[unique=true] ; code[unique=true] ; @media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator] ; mime[default='image/jpg'] ; folder(qualifier)[default='images'] ; altText   
+                    ;                         ; giftWrapMedia1    ; $siteResource/images/gift_wraps/111.jpg                                    ;                           ;                                     ; "STANDARD"
+                    ;                         ; giftWrapMedia2    ; $siteResource/images/gift_wraps/222.jpg                                    ;                           ;                                     ; "PREMIUM" 
+
+INSERT_UPDATE GiftWrapOption;code[unique=true];cost;type(code);giftWrapImage(code)
+;A7;2;STANDARD;giftWrapMedia1
+;A8;5;PREMIUM;giftWrapMedia2

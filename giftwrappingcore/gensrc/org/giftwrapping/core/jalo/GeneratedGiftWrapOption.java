@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Feb 17, 2020 12:19:16 PM                    ---
+ * --- Generated at Feb 19, 2020 10:53:14 AM                    ---
  * ----------------------------------------------------------------
  */
 package org.giftwrapping.core.jalo;
@@ -13,6 +13,7 @@ import de.hybris.platform.jalo.SessionContext;
 import de.hybris.platform.jalo.c2l.C2LManager;
 import de.hybris.platform.jalo.c2l.Language;
 import de.hybris.platform.jalo.enumeration.EnumerationValue;
+import de.hybris.platform.jalo.media.Media;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,6 +33,8 @@ public abstract class GeneratedGiftWrapOption extends GenericItem
 	public static final String COST = "cost";
 	/** Qualifier of the <code>GiftWrapOption.description</code> attribute **/
 	public static final String DESCRIPTION = "description";
+	/** Qualifier of the <code>GiftWrapOption.giftWrapImage</code> attribute **/
+	public static final String GIFTWRAPIMAGE = "giftWrapImage";
 	protected static final Map<String, AttributeMode> DEFAULT_INITIAL_ATTRIBUTES;
 	static
 	{
@@ -40,6 +43,7 @@ public abstract class GeneratedGiftWrapOption extends GenericItem
 		tmp.put(TYPE, AttributeMode.INITIAL);
 		tmp.put(COST, AttributeMode.INITIAL);
 		tmp.put(DESCRIPTION, AttributeMode.INITIAL);
+		tmp.put(GIFTWRAPIMAGE, AttributeMode.INITIAL);
 		DEFAULT_INITIAL_ATTRIBUTES = Collections.unmodifiableMap(tmp);
 	}
 	@Override
@@ -239,6 +243,42 @@ public abstract class GeneratedGiftWrapOption extends GenericItem
 	public void setAllDescription(final Map<Language,String> value)
 	{
 		setAllDescription( getSession().getSessionContext(), value );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>GiftWrapOption.giftWrapImage</code> attribute.
+	 * @return the giftWrapImage
+	 */
+	public Media getGiftWrapImage(final SessionContext ctx)
+	{
+		return (Media)getProperty( ctx, GIFTWRAPIMAGE);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>GiftWrapOption.giftWrapImage</code> attribute.
+	 * @return the giftWrapImage
+	 */
+	public Media getGiftWrapImage()
+	{
+		return getGiftWrapImage( getSession().getSessionContext() );
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>GiftWrapOption.giftWrapImage</code> attribute. 
+	 * @param value the giftWrapImage
+	 */
+	public void setGiftWrapImage(final SessionContext ctx, final Media value)
+	{
+		setProperty(ctx, GIFTWRAPIMAGE,value);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>GiftWrapOption.giftWrapImage</code> attribute. 
+	 * @param value the giftWrapImage
+	 */
+	public void setGiftWrapImage(final Media value)
+	{
+		setGiftWrapImage( getSession().getSessionContext(), value );
 	}
 	
 	/**

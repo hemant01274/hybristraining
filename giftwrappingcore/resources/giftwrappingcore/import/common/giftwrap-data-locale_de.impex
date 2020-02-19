@@ -3,4 +3,3 @@ $lang=de
 INSERT_UPDATE GiftWrapOption;code[unique=true];description[lang=$lang]
 ;A7;Gelegentliche Tribute Rock Band
 ;A8;Niederländische Tribute-Rockband, gegründet 2013
-;A9;experimentelle Jazzgruppe aus London, die viele Noten spielt 

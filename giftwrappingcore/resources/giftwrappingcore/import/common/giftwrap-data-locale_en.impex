@@ -2,5 +2,4 @@ $lang=en
 
 INSERT_UPDATE GiftWrapOption;code[unique=true];description[lang=$lang]
 ;A7;Occasional tribute rock band 
-;A8;Dutch tribute rock band formed in 2013 
-;A9;experimental Jazz group from London playing many musical notes   
+;A8;Dutch tribute rock band formed in 2013  

@@ -120,11 +120,18 @@
 			<div>
 				<c:if test="${entry.product.giftWrapAvailable}">
 					<a id="js-gift-wrap" style="color: green;"
-						data-help="Gift-Wrap Options">
-						<b>Select Gift Wrap</b> &nbsp; <span
-							class="glyphicon glyphicon-gift" aria-hidden="true"></span>
+						data-help="Gift-Wrap Options"> <b>Select Gift Wrap</b> &nbsp;
+						<span class="glyphicon glyphicon-gift" aria-hidden="true"></span>
 					</a>
 				</c:if>
+				<div class="js-gift-wrap-content">
+					<div hidden="true">
+						<form name="giftwrapform">
+							<label > <input type="text" name="gift">Standard</label><br>
+							<label > <input type="radio" name="gift">Premium</label>
+						</form>
+					</div>
+				</div>
 			</div>
 
 

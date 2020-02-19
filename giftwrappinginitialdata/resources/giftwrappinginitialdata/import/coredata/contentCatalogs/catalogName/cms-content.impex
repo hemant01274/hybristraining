@@ -878,21 +878,13 @@ INSERT_UPDATE ContentSlotName ; name[unique=true]       ; template(uid,$contentC
                               ; TopHeaderSlot           ;                                                                       ;                           ; wide               
                               ; giftWrapTypeContentSlot ;                                                                       ;                           ; wide               
 
-#4                            
-INSERT_UPDATE Media ; $contentCV[unique=true] ; code[unique=true] ; @media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator] ; mime[default='image/jpg'] ; folder(qualifier)[default='images'] ; altText   
-                    ;                         ; giftWrapMedia1    ; $siteResource/images/gift_wraps/111.jpg                                    ;                           ;                                     ; "STANDARD"
-                    ;                         ; giftWrapMedia2    ; $siteResource/images/gift_wraps/222.jpg                                    ;                           ;                                     ; "PREMIUM" 
-                    ;                         ; giftWrapMedia3    ; $siteResource/images/gift_wraps/333.jpg                                    ;                           ;                                     ; "STANDARD"
-
-
-INSERT_UPDATE GiftWrapComponent ; $contentCV[unique=true] ; uid[unique=true]              ; name                  ; giftWrapType(code) ; cost ; description[lang=en] ; productImage(code) ; &componentRef                ;  
-                                ;                         ; giftWrapTypeContentComponent1 ; Gift Wrap Information ; STANDARD           ; 2.0  ; "Normal Wrap"        ; giftWrapMedia1     ; giftWrapTypeContentComponent1
-                                ;                         ; giftWrapTypeContentComponent2 ; Gift Wrap Information ; PREMIUM            ; 2.0  ; "Nice Wrap"          ; giftWrapMedia2     ; giftWrapTypeContentComponent2
-                                ;                         ; giftWrapTypeContentComponent3 ; Gift Wrap Information ; STANDARD           ; 2.0  ; "Normal Wrap"        ; giftWrapMedia3     ; giftWrapTypeContentComponent3
-
+#4      
+INSERT_UPDATE GiftWrapComponent ; $contentCV[unique=true] ; uid[unique=true]             ; listOfGiftWraps(code)
+                                ;                         ; giftWrapTypeContentComponent ; A7,A8              
+                                
 #5                              
 INSERT_UPDATE ContentSlot ; $contentCV[unique=true] ; uid[unique=true]        ; name                        ; active ; cmsComponents(uid,$contentCV)                                                            
-                          ;                         ; giftWrapTypeContentSlot ; Gift Wrap Type Content Slot ; true   ; giftWrapTypeContentComponent1,giftWrapTypeContentComponent2,giftWrapTypeContentComponent3
+                          ;                         ; giftWrapTypeContentSlot ; Gift Wrap Type Content Slot ; true   ; giftWrapTypeContentComponent
 
 #6                        
 INSERT_UPDATE ContentSlotForTemplate ; $contentCV[unique=true] ; uid[unique=true]                              ; position[unique=true]   ; pageTemplate(uid,$contentCV)[unique=true][default='GiftWrapPageTemplate'] ; contentSlot(uid,$contentCV)[unique=true] ; allowOverwrite

@@ -23,8 +23,9 @@ ACC.cart = {
 			e.preventDefault();
 			var title = $(this).data("help");
 			ACC.colorbox.open(ACC.common.encodeHtml(title), {
-				href : "giftWrapContentPage",
-				width : "40%"
+				href : "giftwraptype",
+				width : "40%",
+				height : "40%"
 			});
 		})
 	}, 

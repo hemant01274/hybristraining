@@ -190,6 +190,8 @@
 
 	<bean id="genderData" class="org.giftwrapping.facades.product.data.GenderData" scope="prototype"/>
 	
+	
+<!-- 	yadavh -->
 	<alias name="defaultCustomSearchResultProductPopulator" alias="commerceSearchResultProductPopulator" />
 	<bean id="defaultCustomSearchResultProductPopulator" parent="defaultCommerceSearchResultProductPopulator"
 		class="org.giftwrapping.facades.populators.CustomSearchResultProductPopulator">

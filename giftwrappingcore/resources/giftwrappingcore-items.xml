@@ -13,6 +13,9 @@
 		<collectiontype code="SwatchColorSet"
 			elementtype="SwatchColorEnum" autocreate="true" generate="true"
 			type="set" />
+			<collectiontype code="GiftWrapList"
+			elementtype="GiftWrapOption" autocreate="true" generate="true"
+			type="list" />
 	</collectiontypes>
 
 	<enumtypes>
@@ -33,7 +36,7 @@
 		</enumtype>
 
 		<enumtype generate="true" code="GiftWrapType"
-			autocreate="true" dynamic="true">
+			autocreate="true">
 			<value code="STANDARD" />
 			<value code="PREMIUM" />
 		</enumtype>
@@ -44,34 +47,63 @@
 		<!-- Add your item definitions here -->
 
 
-		<itemtype code="GiftWrapComponent"
-			extends="SimpleCMSComponent" generate="true" autocreate="true"
-			jaloclass="org.giftwrapping.core.jalo.GiftWrapComponent">
-			<description>Gift Wrap Options</description>
+		<!-- new attribute in product itemtype #hemant yadav yadavh -->
+		<itemtype code="Product" autocreate="false" generate="false">
+			<description>Is Gift wrapping available</description>
 			<attributes>
-				<attribute qualifier="giftWrapType"
-					type="GiftWrapType">
-					<description>type can be standard or premium for gift wrapping
-					</description>
+				<attribute qualifier="giftWrapAvailable"
+					type="java.lang.Boolean">
+					<description>wrapping </description>
+					<defaultvalue>Boolean.FALSE</defaultvalue>
 					<modifiers />
 					<persistence type="property" />
 				</attribute>
+			</attributes>
+		</itemtype>
 
-				<attribute qualifier="cost" type="java.lang.Double">
-					<description>Cost of Gift Wrap</description>
-					<modifiers  />
+
+		<!-- new model #Hemant Yadav yadavh -->
+		<itemtype code="GiftWrapOption" autocreate="true"
+			generate="true">
+			<description>Gift Wrap Type and Cost</description>
+			<deployment table="GiftWrapTypeAndCost" typecode="12000" />
+			<attributes>
+
+				<attribute qualifier="code" type="java.lang.String">
+					<description>PK </description>
+					<modifiers optional="false" unique="true" />
 					<persistence type="property" />
 				</attribute>
 
+				<attribute qualifier="type" type="GiftWrapType">
+					<description>Type of gift wrap </description>
+					<modifiers />
+					<persistence type="property" />
+				</attribute>
+				<attribute qualifier="cost" type="java.lang.Integer">
+					<description>Cost of gift wrap </description>
+					<modifiers />
+					<persistence type="property" />
+				</attribute>
 				<attribute qualifier="description"
 					type="localized:java.lang.String">
-					<description>Description of Wrap Type</description>
+					<description>Description of gift wrap </description>
 					<modifiers />
 					<persistence type="property" />
 				</attribute>
-				<attribute type="Media" qualifier="productImage">
-				<description>Image of Gift Wrap</description>
-					<modifiers />
+				<attribute type="Media" qualifier="giftWrapImage">
+					<persistence type="property" />
+				</attribute>
+			</attributes>
+		</itemtype>
+
+		<itemtype code="GiftWrapComponent"
+			extends="SimpleCMSComponent" autocreate="true" generate="true"
+			abstract="false"
+			jaloclass="org.giftwrapping.core.jalo.GiftWrapComponent">
+			<deployment table="GiftWrapComponent" typecode="12001" />
+			<attributes>
+				<attribute type="GiftWrapList" qualifier="listOfGiftWraps">
 					<persistence type="property" />
 				</attribute>
 			</attributes>
@@ -135,51 +167,7 @@
 				</attributes>
 			</itemtype>
 
-			<!-- new attribute in product itemtype #hemant yadav -->
-			<itemtype code="Product" autocreate="false" generate="false">
-				<description>Is Gift wrapping available</description>
-				<attributes>
-					<attribute qualifier="giftWrapAvailable"
-						type="java.lang.Boolean">
-						<description>wrapping </description>
-						<modifiers />
-						<persistence type="property" />
-					</attribute>
-				</attributes>
-			</itemtype>
 
-			<!-- new model #Hemant Yadav -->
-			<itemtype code="GiftWrapOption" autocreate="true"
-				generate="true">
-				<description>Gift Wrap Type and Cost</description>
-				<deployment table="GiftWrapTypeAndCost" typecode="12000" />
-				<attributes>
-
-					<attribute qualifier="code" type="java.lang.String">
-						<description>PK </description>
-						<modifiers optional="false" unique="true" />
-						<persistence type="property" />
-					</attribute>
-
-					<attribute qualifier="type" type="GiftWrapType">
-						<description>Type of gift wrap </description>
-						<modifiers />
-						<persistence type="property" />
-					</attribute>
-					<attribute qualifier="cost" type="java.lang.Integer">
-						<description>Cost of gift wrap </description>
-						<modifiers />
-						<persistence type="property" />
-					</attribute>
-					<attribute qualifier="description"
-						type="localized:java.lang.String">
-						<description>Description of gift wrap </description>
-						<modifiers />
-						<persistence type="property" />
-					</attribute>
-
-				</attributes>
-			</itemtype>
 		</typegroup>
 
 		<typegroup name="Electronics">
